@@ -30,6 +30,6 @@ http://www.baeldung.com/install-maven-on-windows-linux-mac
 
 # Project Structure
 
- - 
+ - ![ScreenShot](https://raw.github.com/deepaksusarla/Blog_App_BDD_TestCases/master/ProjectStructure.png)
 
 Note: For reply comment test scenario, waited for 15 secs. Otherwise throughing error "reply is too fast."
