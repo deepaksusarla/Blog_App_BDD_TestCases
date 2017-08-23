@@ -23,6 +23,14 @@ http://www.baeldung.com/install-maven-on-windows-linux-mac
     mvn clean install -DskipTests
     
     mvn test -DsuiteXmlFile=CucumberTestSuite.xml
+    
+# Adding/Modifying Automation Tests
+
+  - Cucumber feature files are at "src/test/resources/features/" location. From here feature files can added or modified
+  
+  - Cucumber step defintions are at "src/test/java/" location. Files are in "com.blog.stepDefintions". From here stepDefinitions can added or modified.
+  
+  For better clarity please look into below project structure image.
 
 - Added BDD and Normal testSuites. 
 
