@@ -1,0 +1,14 @@
+{
+  "Login":{
+    "locatorName":"linkText",
+    "locatorValue":"Log in"
+  },
+  "HomePagePosts":{
+  	"locatorName":"id",
+    "locatorValue":"primary"
+  },
+ "HomePagePostsTitle":{
+ 	"locatorName":"className",
+    "locatorValue":"entry-title"
+ }  
+}

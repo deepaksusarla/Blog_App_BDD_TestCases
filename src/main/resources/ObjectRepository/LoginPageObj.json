@@ -1,0 +1,18 @@
+{
+"UserName":{
+    "locatorName": "id",
+    "locatorValue": "user_login"
+  },
+  "UserPass": {
+    "locatorName": "id",
+    "locatorValue": "user_pass"
+  },
+  "LoginSubmit":{
+    "locatorName":"id",
+    "locatorValue":"wp-submit"
+  },
+  "BackToBlog":{
+  	"locatorName":"id",
+    "locatorValue":"backtoblog"
+  }
+}

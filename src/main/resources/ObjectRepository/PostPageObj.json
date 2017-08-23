@@ -1,0 +1,42 @@
+{
+"PostTitle": {
+    "locatorName": "name",
+    "locatorValue": "post_title"
+  },
+  "VisualTab":{
+  	"locatorName": "id",
+    "locatorValue": "content-tmce"
+  },
+  "TextTab":{
+  	"locatorName": "id",
+    "locatorValue": "content-html"
+  },
+  "TextTabArea":{
+  "locatorName": "className",
+    "locatorValue": "wp-editor-area"
+  },
+  "TextTabAreaTextBold":{
+  "locatorName": "id",
+    "locatorValue": "qt_content_strong"
+  },
+  "PostContentFrame": {
+    "locatorName": "id",
+    "locatorValue": "content_ifr"
+  },
+  "PostContent": {
+    "locatorName": "id",
+    "locatorValue": "tinymce"
+  },
+  "EditorToolBarBoldText":{
+  	"locatorName": "id",
+    "locatorValue": "mceu_1"
+  },
+  "GeneratedPostLink":{
+    "locatorName":"id",
+    "locatorValue":"sample-permalink"
+  },
+  "PublishPost":{
+    "locatorName":"id",
+    "locatorValue":"publish"
+  }
+}

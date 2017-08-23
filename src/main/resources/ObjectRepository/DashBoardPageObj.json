@@ -1,0 +1,18 @@
+{
+"NewPostOrMedia": {
+    "locatorName": "linkText",
+    "locatorValue": "New"
+  },
+ "NewPost":{
+ 	"locatorName": "linkText",
+    "locatorValue": "Post"
+ },
+ "UserProfile":{
+ 	"locatorName": "className",
+    "locatorValue": "display-name"
+ },
+ "UserLogOut":{
+ 	"locatorName": "linkText",
+    "locatorValue": "Log Out"
+ }
+}

@@ -1,0 +1,42 @@
+{
+"SiteTitle":{
+    "locatorName":"className",
+    "locatorValue":"site-title"
+  },
+"PostContent":{
+    "locatorName":"className",
+    "locatorValue":"entry-content"
+  },
+"PostComment":{
+    "locatorName":"id",
+    "locatorValue":"comment"
+  },
+  "CommentAuthorName":{
+  	"locatorName":"id",
+    "locatorValue":"author"
+  },
+ "AuthorEmail":{
+ 	"locatorName":"id",
+    "locatorValue":"email"
+ },
+ "CommentSubmit":{
+ 	"locatorName":"id",
+    "locatorValue":"submit"
+ },
+  "ReplyComment":{
+ 	"locatorName":"className",
+    "locatorValue":"reply"
+ },
+  "CommentsList":{
+ 	"locatorName": "className",
+    "locatorValue": "comment-list"
+ },
+ "CommentedAuthorName":{
+ "locatorName": "className",
+    "locatorValue": "comment-author"
+ },
+ "CommentContent":{
+ "locatorName": "className",
+    "locatorValue": "comment-content"
+ } 
+}
