@@ -24,11 +24,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedCondition;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+
 /*
  * This class holds all the generic methods used by different Pages.
  */
 public class Utils {
 	public static WebDriver driver = null;
+	public static JavascriptExecutor js=null;
 	static HttpClient client = HttpClientBuilder.create().build();
 
 	/**
@@ -65,6 +67,59 @@ public class Utils {
 
 		return locator;
 	}
+	
+	
+	
+	public boolean isElementPresent(final By selector) {
+
+		boolean returnVal = true;
+		WebElement element =null;
+		WebDriverWait wait = new WebDriverWait(driver, 30);
+		try {
+			element=wait.until(new ExpectedCondition<WebElement>() {
+				
+				        public WebElement apply(WebDriver webDriver) {
+				
+				            System.out.println("Waiting for "+selector+" to be found");
+				
+				            return webDriver.findElement(selector);
+				            
+				        }
+				
+				    });
+			highlightElement(element);
+			String desc="Element : " + selector + " found";
+			System.out.println("Wait"+ desc+ " passed");
+			
+		} catch (Exception e) {
+			returnVal = false;
+			e.printStackTrace();
+		}
+
+		return returnVal;
+
+	}
+	
+	/**
+	 * @param element
+	 */
+	public void highlightElement(WebElement element) {
+		try {
+			js.executeScript("arguments[0].style.border='2px solid green'", element);
+			Thread.sleep(500);
+			unhighlightElement(element);
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	/**
+	 * @param element
+	 */
+	public void unhighlightElement(WebElement element) {
+		js.executeScript("arguments[0].style.border=''", element);
+
+	}
 
 	/**
 	 * @param url
@@ -98,7 +153,32 @@ public class Utils {
 	 * @return void
 	 */
 	public void Click(By locator) {
-		driver.findElement(locator).click();
+	try{
+		if(isElementPresent(locator)){
+			driver.findElement(locator).click();
+		}
+		
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+		
+	}
+	
+	
+	/**
+	 * @param locator
+	 * @return void
+	 */
+	public void JSclick(By locator) {
+	try{
+		if(isElementPresent(locator)){
+			js.executeScript("arguments[0].click();", driver.findElement(locator));
+		}
+		
+	}catch(Exception e){
+		e.printStackTrace();
+	}
+		
 	}
 	
 	/**
@@ -107,7 +187,15 @@ public class Utils {
 	 * @return void
 	 */
 	public void Type(By locator,String value) {
-		driver.findElement(locator).sendKeys(value);
+		try{
+			if(isElementPresent(locator)){
+				driver.findElement(locator).sendKeys(value);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/**
@@ -115,7 +203,15 @@ public class Utils {
 	 * @return void
 	 */
 	public void Clear(By locator) {
-		driver.findElement(locator).clear();
+		try{
+			if(isElementPresent(locator)){
+				driver.findElement(locator).clear();
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
 	}
 	
 	/**
@@ -125,7 +221,17 @@ public class Utils {
 	 * @return string
 	 */
 	public String getAttributeValueByTagName(By locator,String tagName,String attributeValue) {
-		return driver.findElement(locator).findElement(By.tagName(tagName)).getAttribute(attributeValue);
+		String attrValue=null;
+		try{
+			if(isElementPresent(locator)){
+				attrValue= driver.findElement(locator).findElement(By.tagName(tagName)).getAttribute(attributeValue);
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		
+		return attrValue;
 	}
 	
 	/**
@@ -143,12 +249,34 @@ public class Utils {
 	 * @param locator
 	 * @return void
 	 */
-	public void mouseOver(By locator) {
+	public void mouseHover(By locator) {
 		Actions action = new Actions(driver);
-		action.moveToElement(driver.findElement(locator)).build().perform();
 		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
+			if(isElementPresent(locator)){
+				action.moveToElement(driver.findElement(locator)).build().perform();
+				Thread.sleep(1000);
+			}
+		
+		} catch (Exception e) {
+
+			e.printStackTrace();
+		}
+	}
+	
+	/**
+	 * @param locator
+	 * @return void
+	 */
+	public void mouseHoverJs(By locator) {
+		try {
+			if(isElementPresent(locator)){
+				String mouseOverScript = "if(document.createEvent){var evObj = document.createEvent('MouseEvents');evObj.initEvent('mouseover', true, false); arguments[0].dispatchEvent(evObj);} else if(document.createEventObject) { arguments[0].fireEvent('onmouseover');}";
+										((JavascriptExecutor) driver).executeScript(mouseOverScript,
+												driver.findElement(locator));
+				Thread.sleep(1000);
+			}
+		
+		} catch (Exception e) {
 
 			e.printStackTrace();
 		}
@@ -159,8 +287,16 @@ public class Utils {
 	 * @return String
 	 */
 	public String getText(By locator) {
-		
-		return driver.findElement(locator).getText();
+		String text=null;
+		try{
+			if(isElementPresent(locator)){
+				text= driver.findElement(locator).getText();
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return text;
 	}
 	
 	/**
@@ -169,8 +305,17 @@ public class Utils {
 	 * @return string
 	 */
 	public String getTextByTagName(By locator,String tagName) {
+		String text=null;
+		try{
+			if(isElementPresent(locator)){
+				text=  driver.findElement(locator).findElement(By.tagName(tagName)).getText();
+			}
+			
+		}catch(Exception e){
+			e.printStackTrace();
+		}
+		return text;
 		
-		return driver.findElement(locator).findElement(By.tagName(tagName)).getText();
 	}
 	
 	

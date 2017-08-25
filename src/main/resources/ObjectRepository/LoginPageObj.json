@@ -12,7 +12,7 @@
     "locatorValue":"wp-submit"
   },
   "BackToBlog":{
-  	"locatorName":"id",
-    "locatorValue":"backtoblog"
+  	"locatorName":"partialLinkText",
+    "locatorValue":"Back"
   }
 }

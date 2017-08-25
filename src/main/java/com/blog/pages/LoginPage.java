@@ -1,6 +1,8 @@
 package com.blog.pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 
 import com.blog.library.JsonReader;
 import com.blog.library.Locators;

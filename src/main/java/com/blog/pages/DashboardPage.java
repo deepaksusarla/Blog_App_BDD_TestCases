@@ -46,13 +46,13 @@ public class DashboardPage extends Page{
 	}
 	
 	public PostPage createNewPost(){
-		this.mouseOver(newPostOrMedia);
+		this.mouseHover(newPostOrMedia);
 		this.Click(newPost);
 		return PostPage.getInstance();
 	}
 	
 	public LoginPage logOutUser(){
-		this.mouseOver(userProfile);
+		this.mouseHover(userProfile);
 		this.Click(userLogOut);
 		return LoginPage.getInstance();
 	}
